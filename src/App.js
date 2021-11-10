@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import React, { useState, useEffect, Suspense, lazy } from "react";
 import "./App.css";
 import axios from "axios";
@@ -10,6 +9,7 @@ function App() {
   const [point, setp] = useState(0);
 
   const text = (event) => {
+    // eslint-disable-next-line
     if (Number(event.target.value) != Number.NaN) {
       axios({
         method: "put",
@@ -22,6 +22,7 @@ function App() {
     setCount(event.target.value);
   };
   const chgn = () => {
+    // eslint-disable-next-line
     if (Number(count) == Number.NaN) return;
 
     let curr = Number(count);
@@ -37,10 +38,11 @@ function App() {
     setCount(curr);
   };
   const chgp = () => {
+    // eslint-disable-next-line
     if (Number(count) == Number.NaN) return;
     let curr = Number(count);
     curr = curr + 1;
-
+    // eslint-disable-next-line
     if (curr == 1001) return;
     curr = curr.toString(10);
     axios({
@@ -53,6 +55,7 @@ function App() {
     setCount(curr);
   };
   useEffect(() => {
+    // eslint-disable-next-line
     if (point == 0) {
       setp(1);
       axios
@@ -60,13 +63,14 @@ function App() {
           " https://interview-8e4c5-default-rtdb.firebaseio.com/front-end/Tushar.json"
         )
         .then((res) => {
+          // eslint-disable-next-line
           if (res.data != undefined && Number(res.data) != Number.NaN) {
             setCount(Number(res.data));
           } else {
             setCount("1");
           }
         });
-    }
+    } // eslint-disable-next-line
   }, []);
 
   return (
